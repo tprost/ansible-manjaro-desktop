@@ -12,8 +12,12 @@ sudo pacman -Syy
 sudo pacman -S ansible git --noconfirm
 ```
 
-
 2. Set up SSH keys for my Github and Gitlab
+
+```
+...
+chmod 400 ~/.ssh/id_rsa
+```
 
 ## Running
 
