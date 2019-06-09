@@ -2,5 +2,5 @@
 
 - name: "clone my emacs config"
   git:
-    repo: 'https://github.com/tprost/emacs.d'
+    repo: 'git@github.com:tprost/.emacs.d.git'
     dest: ~/.emacs.d
