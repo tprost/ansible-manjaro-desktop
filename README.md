@@ -7,8 +7,10 @@ installation.
 
 1. Update, upgrade and install Ansible
 
-> sudo pacman -Syy
-> sudo pacman -S ansible git --noconfirm
+```
+sudo pacman -Syy
+sudo pacman -S ansible git --noconfirm
+```
 
 
 2. Set up SSH keys for my Github and Gitlab
