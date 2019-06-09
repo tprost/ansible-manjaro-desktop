@@ -1,0 +1,6 @@
+---
+
+- name: "clone my i3 config"
+  git:
+    repo: 'git@github.com:tprost/i3-config.git'
+    dest: ~/.config/i3
