@@ -1,7 +1,12 @@
 ---
-- name: install software
+
+- name: Run the equivalent of "pacman -Syu" as a separate step
+  pacman:
+    update_cache: yes
+    upgrade: yes
+    
+- name: install things
   hosts: local
-  remote_user: adam
 
   roles:
     - common
