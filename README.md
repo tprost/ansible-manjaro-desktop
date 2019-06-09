@@ -5,21 +5,13 @@ installation.
 
 ## Setup
 
-1. Ansible must be installed
+1. Update, upgrade and install Ansible
 
->  sudo pacman -S ansible
+> sudo pacman -Syy
+> sudo pacman -S ansible git --noconfirm
 
-2. SSH server must be running
 
-```
-sudo pacman -S openssh
-sudo systemctl enable sshd
-sudo systemctl start sshd
-```
-
-3. SSH pass is required to enter password
-
-> sudo pacman -S sshpass
+2. Set up SSH keys for my Github and Gitlab
 
 ## Running
 
