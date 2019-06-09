@@ -9,175 +9,23 @@
   tags: git
   become: true
 
-- name: install pip
-  shell: easy_install pip
+- name: install emacs
+  pacman: name=emacs state=present
+  tags: emacs
   become: true
-
-- name: install neovim
-  pacman: name=neovim state=present
-  tags: neovim
-  become: true
-
-- name: install neovim python client
-  pip: name=neovim
-  tags: python neovim
-  become: true
-
-- name: create vim symlink to nvim
-  file: src=/usr/bin/nvim dest=/usr/bin/vim state=link
-  become: true
-
-- name: create vi symlink to vim
-  file: src=/usr/bin/vim dest=/usr/bin/vi state=link
-  become: true
-
-- name: install fish shell
-  pacman: name=fish state=present
-  tags: fish
-  become: true
-
-- name: switch default shell to fish
-  shell: chsh -s /usr/bin/fish adam
-  tags: shellchange
-  become: true
-
-- name: download oh-my-fish install script
-  get_url:
-    url: https://get.oh-my.fish
-    dest: /tmp/fish_install.sh
-    mode: 0774
-
-- name: install oh-my-fish
-  shell: /tmp/fish_install.sh --noninteractive
-  ignore_errors: true
-  async: 10
-  poll: 1
-
-- name: check if nerd fonts are installed
-  shell: pacman -Qs nerd-fonts-complete
-  register: result
-
-- name: install nerd fonts
-  shell: yaourt -S nerd-fonts-complete --noconfirm
-  when: result == ""
-  tags: nerd-fonts
-  ignore_errors: true
-  async: 300
-  poll: 10
-
-- name: install bobthefish theme
-  shell: omf install bobthefish; and omf theme bobthefish
-  args:
-    executable: /usr/bin/fish
-
-- name: install fish vi-mode
-  shell: omf install vi-mode
-  args:
-    executable: /usr/bin/fish
-
-- name: install thefuck
-  shell: pip install thefuck
-  become: true
-
-- name: install oh-my-fish thefuck plugin
-  shell: omf install thefuck
-  args:
-    executable: /usr/bin/fish
-
-- name: remove empathy
-  pacman: name=empathy state=absent
-  become: true
-
-- name: enable bobthefish to use nerd fonts
-  shell: set -g theme_nerd_fonts yes
-  args:
-    executable: /usr/bin/fish
-
-- name: install terminator
-  pacman: name=terminator state=present
-  tags: terminator
-  become: true
-
-- name: download dein (neovim package manager)
-  get_url:
-    url: https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
-    dest: /tmp/dein_install.sh
-    mode: 0774
-
-- name: install dein
-  shell: /tmp/dein_install.sh ~/.local/share/dein
-
-- name : install neovim config
-  copy:
-    src: roles/common/files/init.vim
-    dest: ~/.config/nvim/init.vim
 
 - name: install chromium
   pacman: name=chromium state=present
   become: true
 
-- name: install nodejs
-  pacman: name=nodejs state=present
-  become: true
-
-- name: install npm
-  pacman: name=npm state=present
-  become: true
-
-- name : install z
-  copy:
-    src: roles/common/files/z.sh
-    dest: ~/.local/share/omf/bin/z.sh
-    mode: 0774
-
-- name: set fish z path
-  lineinfile: dest=~/.local/share/omf/init.fish
-              line="set -g Z_SCRIPT_PATH ~/.local/share/omf/bin/z.sh"
-              state=present
-              insertbefore=BOF
-
-- name: install fish z
-  shell: omf install z
-  args:
-    executable: /usr/bin/fish
-
 - name: install virtualbox
   pacman: name=virtualbox state=present
-  become: true
-
-- name: install vagrant
-  pacman: name=vagrant state=present
   become: true
 
 - name: install ruby
   pacman: name=ruby state=present
   become: true
 
-- name: install tidy - HTML linter
-  pacman: name=tidy state=present
-  become: true
-
-- name: install flake8 - python linter
-  pacman: name=flake8 state=present
-  become: true
-
-- name : install fish config
-  copy:
-    src: roles/common/files/config.fish
-    dest: ~/.config/fish/config.fish
-
-- name: install ctags
-  pacman: name=ctags state=present
-  become: true
-
-- name: install locate
-  pacman: name=mlocate state=present
-  become: true
-
 - name: install ag
   pacman: name=the_silver_searcher state=present
   become: true
-
-- name: install yarn
-  shell: curl -o- -L https://yarnpkg.com/install.sh | bash
-  tags: yarn
