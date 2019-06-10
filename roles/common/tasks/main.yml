@@ -39,9 +39,11 @@
     url: https://github.com/supermarin/YosemiteSanFranciscoFont/raw/master/System%20San%20Francisco%20Display%20Bold.ttf
     dest: "/usr/share/fonts/"
     mode: 0755
+  become: true
     
 - name: install Yosemite San Francisco Regular
   get_url:
     url: https://github.com/supermarin/YosemiteSanFranciscoFont/raw/master/System%20San%20Francisco%20Display%20Regular.ttf
     dest: "/usr/share/fonts/"
     mode: 0755
+  become: true
