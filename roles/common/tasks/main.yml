@@ -33,3 +33,15 @@
 - name: install i3-gaps
   pacman: name=i3-gaps state=present
   become: true
+  
+- name: install Yosemite San Francisco Bold
+  get_url:
+    url: https://github.com/supermarin/YosemiteSanFranciscoFont/raw/master/System%20San%20Francisco%20Display%20Bold.ttf
+    dest: "~/.fonts"
+    mode: 0755
+    
+- name: install Yosemite San Francisco Regular
+  get_url:
+    url: https://github.com/supermarin/YosemiteSanFranciscoFont/raw/master/System%20San%20Francisco%20Display%20Regular.ttf
+    dest: "~/.fonts"
+    mode: 0755
