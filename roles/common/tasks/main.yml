@@ -50,7 +50,7 @@
   
 - name: install Monaco
   get_url:
-    url: ttp://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf
+    url: http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf
     dest: "/usr/share/fonts/"
     mode: 0444
   become: true
