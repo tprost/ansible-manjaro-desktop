@@ -11,6 +11,9 @@
 - name: install i3status
   pacman: name=i3status state=present
   become: true
+  
+- name: install San Francisco
+  command: ruby -e "$(curl -fsSL https://raw.github.com/supermarin/YosemiteSanFranciscoFont/master/install)"
 
 - name: "clone my i3 config"
   git:
