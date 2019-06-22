@@ -5,18 +5,27 @@ installation.
 
 ## Setup
 
-1. Update, upgrade and install Ansible
+1. Set up SSH
 
 ```
-sudo pacman -Syy
-sudo pacman -S ansible git --noconfirm
+sudo pacman -S openssh
+sudo systemctl status sshd.service
+sudo systemctl enable sshd.service
+sudo systemctl start sshd.service
 ```
 
 2. Set up SSH keys for my Github and Gitlab
 
 ```
-...
+scp ~/.ssh/id* taylor@<ip>:~/.ssh
 chmod 400 ~/.ssh/id_rsa
+```
+
+3. Update, upgrade and install Ansible
+
+```
+sudo pacman -Syy
+sudo pacman -S ansible git --noconfirm
 ```
 
 ## Running
