@@ -1,8 +1,7 @@
 ---
 
 - aur: name=trizen use=makepkg skip_installed=true
-  become: yes
-  become_user: aur_builder
+  become: true
 
 - name: install wget
   pacman: name=wget state=present
