@@ -1,6 +1,6 @@
 ---
 
-- aur: name=trizen use=makepkg skip_installed=true
+- aur: name=google-chrome skip_installed=true
 
 - name: install wget
   pacman: name=wget state=present
