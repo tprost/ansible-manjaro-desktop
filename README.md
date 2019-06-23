@@ -26,6 +26,7 @@ chmod 400 ~/.ssh/id_rsa
 ```
 sudo pacman -Syy
 sudo pacman -S ansible git --noconfirm
+sudo pacman-mirrors --fasttrack
 git clone https://github.com/kewlfft/ansible-aur ~/.ansible/plugins/modules
 ```
 
