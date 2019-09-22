@@ -33,3 +33,9 @@ git clone https://github.com/kewlfft/ansible-aur ~/.ansible/plugins/modules
 ## Running
 
 > ./run.sh
+
+## Desktop Wallpaper
+
+https://www.reddit.com/r/unixporn/comments/67jj4w/discussion_where_are_the_best_places_to_get/
+
+This post on using hsetroot.
