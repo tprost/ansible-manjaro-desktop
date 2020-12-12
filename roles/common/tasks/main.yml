@@ -1,59 +1,56 @@
 ---
 
-- aur: name=google-chrome skip_installed=true
-
-- name: install wget
-  pacman: name=wget state=present
-  tags: wget
+- name: install yay
+  pacman: name=yay state=present
+  tags: yay
   become: true
 
-- name: install git
-  pacman: name=git state=present
-  tags: git
+- name: install deluge
+  pacman: name=deluge-gtk state=present
+  tags: deluge
   become: true
 
-- name: install emacs
-  pacman: name=emacs state=present
-  tags: emacs
+- name: install Google Chrome
+  aur: name=google-chrome
+
+- name: install deluge
+  pacman: name=deluge-gtk state=present
+  tags: deluge
   become: true
 
-- name: install chromium
-  pacman: name=chromium state=present
-  become: true
+# - name: install wget
+#   pacman: name=wget state=present
+#   tags: wget
+#   become: true
 
-- name: install virtualbox
-  pacman: name=virtualbox state=present
-  become: true
+# - name: install git
+#   pacman: name=git state=present
+#   tags: git
+#   become: true
 
-- name: install ruby
-  pacman: name=ruby state=present
-  become: true
+# - name: install emacs
+#   pacman: name=emacs state=present
+#   tags: emacs
+#   become: true
 
-- name: install ag
-  pacman: name=the_silver_searcher state=present
-  become: true
+# - name: install chromium
+#   pacman: name=chromium state=present
+#   become: true
+
+# - name: install virtualbox
+#   pacman: name=virtualbox state=present
+#   become: true
+
+# - name: install ruby
+#   pacman: name=ruby state=present
+#   become: true
+
+# - name: install ag
+#   pacman: name=the_silver_searcher state=present
+#   become: true
   
-- name: install i3-gaps
-  pacman: name=i3-gaps state=present
-  become: true
+# - name: install i3-gaps
+#   pacman: name=i3-gaps state=present
+#   become: true
   
-- name: install Yosemite San Francisco Bold
-  get_url:
-    url: https://github.com/supermarin/YosemiteSanFranciscoFont/raw/master/System%20San%20Francisco%20Display%20Bold.ttf
-    dest: "/usr/share/fonts/"
-    mode: 0444
-  become: true
-    
-- name: install Yosemite San Francisco Regular
-  get_url:
-    url: https://github.com/supermarin/YosemiteSanFranciscoFont/raw/master/System%20San%20Francisco%20Display%20Regular.ttf
-    dest: "/usr/share/fonts/"
-    mode: 0444
-  become: true
-  
-- name: install Monaco
-  get_url:
-    url: http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf
-    dest: "/usr/share/fonts/"
-    mode: 0444
-  become: true
+

@@ -1,2 +1,2 @@
 #!/bin/bash
-ansible-playbook -i hosts site.yml --ask-pass --ask-become-pass --connection=local
+ansible-playbook -i hosts site.yml --ask-become-pass --connection=local

@@ -1,0 +1,14 @@
+---
+
+- name: Check if monaco.ttf exists
+  stat:
+    path: /usr/share/fonts/monaco.ttf
+  register: stat_result
+
+- name: install Monaco
+  get_url:
+    url: http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf
+    dest: "/usr/share/fonts/monaco.ttf"
+    mode: 0444
+  become: true
+  when: stat_result.stat.exists == false

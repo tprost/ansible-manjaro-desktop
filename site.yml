@@ -2,8 +2,8 @@
     
 - name: install things
   hosts: local
-
   roles:
     - common
     - emacs
     - i3
+    - fonts
