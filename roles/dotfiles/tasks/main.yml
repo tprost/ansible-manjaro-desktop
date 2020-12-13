@@ -1,0 +1,17 @@
+
+- name: "clone my emacs config"
+  git:
+    repo: 'git@github.com:tprost/emacs.d.git'
+    dest: ~/.emacs.d
+    update: no
+
+- name: "clone my dotfiles to `~/dotfiles"
+  git:
+    repo: 'git@github.com:tprost/dotfiles.git'
+    dest: ~/dotfiles
+    update: no
+  register: gitdotfiles
+
+- name: "sync dotfiles"
+  shell: cd ~/dotfiles && ./sync.sh
+  when: gitdotfiles.changed

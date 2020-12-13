@@ -2,13 +2,23 @@
 
 - name: install yay
   pacman: name=yay state=present
-  tags: yay
+  tags: yay  
   become: true
 
 - name: install deluge
   pacman: name=deluge-gtk state=present
   tags: deluge
   become: true
+
+- name: install rofi
+  pacman: name=rofi state=present
+  tags: rofi
+  become: true
+
+- name: install picom
+  pacman: name=picom state=present
+  tags: picom
+  become: true  
 
 - name: install Google Chrome
   aur: name=google-chrome
